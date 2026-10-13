@@ -1,0 +1,9 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+scratch_test.py
+race_test.py
+race_patch_test.py
+seed_*.py
