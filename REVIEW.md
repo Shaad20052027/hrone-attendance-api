@@ -31,4 +31,4 @@ List every defect found in the starter `app/main.py` (helpers and endpoints).
 
 - **`load_dotenv()` at import time:** by default it does not override environment variables that are already set, so real environment variables win over `.env`. That is the behaviour we want.
 - **`IST = timezone(timedelta(hours=5, minutes=30))`:** a fixed offset is correct because India has no daylight saving time, so no timezone database is needed.
-- **`doc.pop("_id", None)` after `insert_one`:** `insert_one` adds `_id` to the dict, so removing it before returning is right (the API must never expose `_id`).
+- **`doc.pop("_id", None)` after `insert_one` in the starter:** this was correct, since `insert_one` adds `_id` to the dict and the API must never expose it. I replaced it with `employee_out()` and `attendance_out()`, which build the response explicitly, so `_id` can't leak.
